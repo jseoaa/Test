@@ -8,7 +8,7 @@ class PostList(ListView):
     ordering = '-pk'
     
 class PostList(DetailView):
-    model
+    model = Post
     # template_name = 'blog/index.html'
 
 
