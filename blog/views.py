@@ -1,15 +1,19 @@
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Post, Category , Tag
-from django.contrib.auth.mixins import LoginRequiredMixin  # 로그인되어있을때만 보여주는것
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin  # 로그인되어있을때만 보여주는것
 from django.shortcuts import  render, redirect
 
-class PostCreate(LoginRequiredMixin, CreateView):
+class PostCreate(LoginRequiredMixin,UserPassesTestMixin, CreateView):
     model = Post
     fields = ['title','hook_text','content','head_image','file_upload','category']
-
+    
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.is_staff
+    
+    
     def form_valid(self, form):
         current_user = self.request.current_user
-        if current_user.is_authenticated:
+        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
             form.instance.author = current_user
             return super(PostCreate,self).form_valid(form)
         else:
@@ -22,6 +26,7 @@ class PostList(ListView):
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data()
         context['categories'] = Category.objects.all()
+        
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
 
