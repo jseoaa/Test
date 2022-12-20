@@ -1,17 +1,221 @@
 <!DOCTYPE html>
-<html lang="ko">
+{% load static %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Robin</title>
+    <title>About Me</title>
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'single_pages/css/about_me.css' %}" media="screen">
 </head>
-<body>
-     <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/about_me/">About_me</a>
-    </nav>
     
-    <h2>이력</h2>
-    <h2>Portfolio</h2>
-    <h3>공사중 돌아서 가세요</h3>
+<body>
+    {% include 'blog/navbar.html' %}
+    
+    <section><!-- 섹션 기준으로 다른 디자인을 하겠다 -->
+        <div class="container mt-4"><!-- 클래스 컨테이너 -->
+            <div class="row"><!-- 로우 -->
+                <div class="col-lg-8"><!-- 컬럼 -->
+                    <h1>Hello,  </h1>
+                    <br>
+                    <p>
+                        경력이나 학력 다니는 회사 등을 입력하면 된다고 한다 ㅇ3ㅇ<br>
+                        복숭아 산딸기 과일 맛있겠댜 냠냠<br>
+                        제일 맛있는 과일은 뭘까<br>
+                        겨울에는 .. 산딸기..?<br>
+                    </p>
+
+                    <ul>
+                        <li>훈련 과정</li>
+                        <ul>
+                            <li>JAVA</li>
+                            <li>PYTHON</li>
+                            <li>빅데이터 분석</li>
+                            <li>인공지능</li>
+                            <li>HTML CSS JS</li>
+                        </ul>
+                        <li>경력 사항</li>
+                        <ul>
+                            <li>센텀대 컴공 학사(2013.03 ~ 2018.08)</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </ul>
+                </div>      
+                <div class="col-lg-4"><!-- lg : 화면 크기 설정 -->
+                    <img class="img-fluid" src="{% static 'single_pages/images/snows.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="margin_for_footer">
+        <div class="container"><!-- 클래스 컨테이너 -->
+            
+            <div class="row"><!-- 로우 -->
+                <div class="col-12"><!-- 컬럼 -->
+                    <h1>Portfolio</h1>
+                </div>               
+            </div>
+            
+            <div class="row"><!-- 첫번째 줄 -->
+                
+                <div class="col-lg-4">
+                    <div class="card" data-toggle="modal" data-target="#excel2022">
+                        <!-- 다른 애들이 bootstrap 5.0 을 넘어가는걸 지원 안 할 수도 있다
+                             : bootstrap 4.6 정도 쓰면 된다 -->
+                        <img class="card-img-top" src="{% static 'single_pages/images/dolphin.jpg' %}" alt="돌고래">
+                        <div class="card-body">
+                            <h6 class="card-title">파이썬을 이용한 업무자동화[2022.12]</h6>
+                            <p>
+                                돌핀돌핀 귀여워
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card" data-toggle="modal" data-target="#django2022">
+                        <!-- 다른 애들이 bootstrap 5.0 을 넘어가는걸 지원 안 할 수도 있다
+                             : bootstrap 4.6 정도 쓰면 된다 -->
+                        <img class="card-img-top" src="{% static 'single_pages/images/beach.jpg' %}" alt="섬과 바다">
+                        <div class="card-body">
+                            <h6 class="card-title">장고 [2022.12]</h6>
+                            <p>
+                                섬과 바다
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card" data-toggle="modal" data-target="#python2022">
+                        <!-- 다른 애들이 bootstrap 5.0 을 넘어가는걸 지원 안 할 수도 있다
+                             : bootstrap 4.6 정도 쓰면 된다 -->
+                        <img class="card-img-top" src="{% static 'single_pages/images/mountain.jpg' %}" alt="산과 오두막">
+                        <div class="card-body">
+                            <h6 class="card-title">파이썬 [2022.12]</h6>
+                            <p>
+                                산과 오두막
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+            </div><!-- row 끝 -->
+            
+        </div>
+    </section>
+
+        <!-- Modal 1 -->
+        <!-- aria-labelledby : id + ModalLabel -->
+        <div class="modal" id="excel2022" tabindex="-1" aria-labelledby="excel2022ModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="excel2022ModalLabel">파이썬을 이용한 업무자동화[2022.12]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-7"><!-- 이미지 -->
+                          <img class="img-fluid" src="{% static 'single_pages/images/surf.jpg' %}" alt="">
+                      </div>
+                      <div class="col-lg-5"><!-- 글 -->
+                          <p>
+                              퓨퓨 배고프다 샐러드를 점심에 먹다니<br>
+                              좀 더 맛있구 헤비한 거 먹구싶다 <br>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Modal 2 -->
+        <div class="modal" id="django2022" tabindex="-1" aria-labelledby="django2022ModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="django2022ModalLabel">이거는 두번째 모달 ~ㅇ~ </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-7"><!-- 이미지 -->
+                          <img class="img-fluid" src="{% static 'single_pages/images/tree.jpg' %}" alt="">
+                      </div>
+                      <div class="col-lg-5"><!-- 글 -->
+                        <p>
+                            흠냠냐 이뿐 나무 ㅇ0ㅇ~
+                        </p>
+                      </div>
+                  </div>
+              </div>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Modal 3 -->
+        <div class="modal" id="python2022" tabindex="-1" aria-labelledby="python2022ModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="python2022ModalLabel">이거는 세번째 모달 ~ㅇ~ </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+                
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-lg-7"><!-- 이미지 -->
+                          <img class="img-fluid" src="{% static 'single_pages/images/house.webp' %}" alt="">
+                      </div>
+                      <div class="col-lg-5"><!-- 글 -->
+                        <p>
+                            이런 오두막이 있다니 ㅇ0ㅇ!?!?
+                        </p>
+                      </div>
+                  </div>
+              </div>
+                
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    
+    <div class="fixed-bottom">
+        {% include 'blog/footer.html' %}
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>
