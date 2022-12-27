@@ -20,12 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('board/',include('board.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
     path('', include('single_pages.urls')),
     # 아무것도 안 치면 대문 페이지
     path('accounts/',include('allauth.urls')),
     path('markdownx/', include('markdownx.urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
